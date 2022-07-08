@@ -5,11 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+
         <variable
             name="fireFighterViewModel"
             type="com.icapps.yarno.firefighter.FireFighterViewModel" />
 
     </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -32,7 +34,7 @@
             android:layout_height="27dp"
             android:layout_marginTop="21dp"
             android:layout_marginEnd="21dp"
-            android:text="@string/score_id"
+            android:text="@{String.valueOf(fireFighterViewModel.score)}"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -42,16 +44,25 @@
             android:id="@+id/btn_fighter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="162dp"
-            android:layout_marginTop="524dp"
-            android:layout_marginEnd="162dp"
-            android:layout_marginBottom="159dp"
-            android:text="@string/btn_fighter"
-            android:enabled="@{!fireFighterViewModel.gameStarted}"
+
+            android:enabled="@{fireFighterViewModel.gameStarted}"
             android:onClick="@{()->fireFighterViewModel.startGame()}"
+            android:text="@string/btn_fighter"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toBottomOf="@+id/score_id"
+            app:layout_constraintVertical_bias="0.77" />
+
+        <ImageView
+            android:id="@+id/fire_id"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_marginStart="148dp"
+            android:layout_marginBottom="340dp"
+            android:enabled="@{!fireFighterViewModel.gameStarted}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/ic_flame_1" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
