@@ -79,6 +79,4 @@ class FireFighterViewModel(application: Application) : AndroidViewModel(applicat
         scoreIncrementer++
         _score.postValue(scoreIncrementer)
     }
-
-
 }

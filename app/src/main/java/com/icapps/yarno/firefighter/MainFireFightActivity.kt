@@ -3,6 +3,7 @@ package com.icapps.yarno.firefighter
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.view.WindowManager
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import android.widget.Button
@@ -27,15 +28,12 @@ class MainFireFightActivity : AppCompatActivity() {
         val binding: ActivityMainFireFightBinding =
             DataBindingUtil.setContentView(this, R.layout.activity_main_fire_fight)
 
-
-
         binding.lifecycleOwner = this
         binding.fireFighterViewModel = fireFighterViewModel
         flameImg = findViewById(R.id.fire_id)
         startButton = findViewById(R.id.btn_fighter)
 
         animation = AnimationUtils.loadAnimation(this, R.anim.dissapear)
-
 
         startButton.setOnClickListener {
             startButton.visibility = View.GONE
@@ -45,7 +43,6 @@ class MainFireFightActivity : AppCompatActivity() {
             flameImg.startAnimation(animation)
             flameImg.animate().x(randomInt.toFloat()).y(randomInt.toFloat()) // window manager en guidelines!
             fireFighterViewModel.flameIsClicked()
-
         }
 
         if (savedInstanceState != null) fireFighterViewModel.restoreGame()
