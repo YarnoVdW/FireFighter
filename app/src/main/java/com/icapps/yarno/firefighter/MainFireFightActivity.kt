@@ -1,27 +1,33 @@
 package com.icapps.yarno.firefighter
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.Button
-import android.widget.TextView
-import java.util.*
+import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
+import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.ViewModelProvider
+import com.icapps.yarno.firefighter.databinding.ActivityMainFireFightBinding
 
 class MainFireFightActivity : AppCompatActivity() {
-    private lateinit var timerView: TextView
-    private lateinit var scoreView: TextView
-    private lateinit var fighterButton: Button
 
-    private var score = 0
-
+    private val fireFighterViewModel by lazy {
+         ViewModelProvider(this)[FireFighterViewModel::class.java]
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main_fire_fight)
 
-        timerView = findViewById(R.id.timer_id)
-        scoreView = findViewById(R.id.score_id)
-        fighterButton = findViewById(R.id.btn_fighter)
+        val binding: ActivityMainFireFightBinding =
+            DataBindingUtil.setContentView(this, R.layout.activity_main_fire_fight)
 
+        fireFighterViewModel.timeLeftOnTimer.observe(this) {
+            Log.d("Fire", "timeleft: $it")
+        }
+
+        binding.lifecycleOwner = this
+        binding.fireFighterViewModel = fireFighterViewModel
+
+        if (savedInstanceState != null) fireFighterViewModel.restoreGame()
+        else fireFighterViewModel.resetGame()
 
     }
 }

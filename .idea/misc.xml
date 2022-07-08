@@ -3,8 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable/ic_flame_2.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_flame_3.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_flame_4.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.19610507246376813" />
-        <entry key="app/src/main/res/layout/activity_main_fire_fight.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main_fire_fight.xml" value="0.6030029296875" />
+        <entry key="app/src/main/res/layout/content_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/main_fire_fight_activity.xml" value="0.19610507246376813" />
       </map>
     </option>

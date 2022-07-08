@@ -1,44 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/timer_id"
-        android:layout_width="97dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="19dp"
-        android:text="Timer"
-        android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <data>
+        <variable
+            name="fireFighterViewModel"
+            type="com.icapps.yarno.firefighter.FireFighterViewModel" />
 
-    <TextView
-        android:id="@+id/score_id"
-        android:layout_width="64dp"
-        android:layout_height="27dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="21dp"
-        android:text="Score"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.icapps.yarno.firefighter.MainFireFightActivity">
 
-    <Button
+        <TextView
+            android:id="@+id/timer_id"
+            android:layout_width="189dp"
+            android:layout_height="73dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="19dp"
+            android:text="@{String.valueOf(fireFighterViewModel.timeLeftOnTimer)}"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        android:id="@+id/btn_fighter"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="162dp"
-        android:layout_marginTop="524dp"
-        android:layout_marginEnd="162dp"
-        android:layout_marginBottom="159dp"
-        android:text="Fight"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/score_id"
+            android:layout_width="64dp"
+            android:layout_height="27dp"
+            android:layout_marginTop="21dp"
+            android:layout_marginEnd="21dp"
+            android:text="@string/score_id"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+
+            android:id="@+id/btn_fighter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="162dp"
+            android:layout_marginTop="524dp"
+            android:layout_marginEnd="162dp"
+            android:layout_marginBottom="159dp"
+            android:text="@string/btn_fighter"
+            android:enabled="@{!fireFighterViewModel.gameStarted}"
+            android:onClick="@{()->fireFighterViewModel.startGame()}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
