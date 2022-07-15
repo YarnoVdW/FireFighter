@@ -12,4 +12,8 @@
     <string name="score_id">Score: %1$d</string>
     <string name="timer_id">Time left: %1$d</string>
     <string name="btn_fighter">Fight</string>
+    <string name="start_btn">Start</string>
+    <string name="title_activity_main_screen">Fire fighter</string>
+    <string name="about">About</string>
+    <string name="how_to_play">How to play</string>
 </resources>

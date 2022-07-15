@@ -1,10 +1,13 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.icapps.yarno.firefighter.MainActivity">
+    tools:context="com.icapps.yarno.firefighter.MainScreenActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/htp"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:title="@string/how_to_play" />
+    <item
+        android:id="@+id/menu_abt"
+        android:orderInCategory="101"
+        android:title="@string/about" />
 </menu>

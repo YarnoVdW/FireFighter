@@ -9,6 +9,12 @@ import androidx.lifecycle.MutableLiveData
 
 class FireFighterViewModel(application: Application) : AndroidViewModel(application) {
 
+    // TODO: Launch screen
+    // TODO: countdouwn when pressing start, start button disappears
+    // TODO: flame has to go back to begin position
+    // TODO: multiple flames
+    // TODO: EXPANSION multiple levels?
+    // TODO: app icon
 
     private var _gameStarted = MutableLiveData<Boolean>(true)
     val gameStarted: LiveData<Boolean>
@@ -16,7 +22,7 @@ class FireFighterViewModel(application: Application) : AndroidViewModel(applicat
 
 
     private lateinit var countDownTimer: CountDownTimer
-    private val initialCountDownTimerInMillis = 5000L
+    private val initialCountDownTimerInMillis = 10000L
     private val countDownIntervalInMillis = 1000L
 
     private var _timeLeftOnTimer = MutableLiveData<Int>()
@@ -28,8 +34,6 @@ class FireFighterViewModel(application: Application) : AndroidViewModel(applicat
         get() = _score
     private var scoreIncrementer = 0
     private val context = getApplication<Application>().applicationContext
-
-
 
 
     private var timeLeft = initialCountDownTimerInMillis
@@ -66,13 +70,15 @@ class FireFighterViewModel(application: Application) : AndroidViewModel(applicat
         countDownTimer.start()
     }
 
-    private fun endGame() {
+    fun endGame(): Boolean {
         Toast.makeText(
             context,
             "Times up! You extinguished ${_score.value} flames!",
             Toast.LENGTH_LONG
         ).show()
         resetGame()
+
+        return true
     }
 
     fun flameIsClicked() {

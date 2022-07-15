@@ -3,7 +3,7 @@
     android:shareInterpolator="@android:anim/accelerate_interpolator">
 
     <alpha
-        android:duration="10"
+        android:duration="1000"
 
         android:fromAlpha="0.0"
        />
