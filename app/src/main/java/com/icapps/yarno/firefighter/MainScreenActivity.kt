@@ -24,13 +24,30 @@ class MainScreenActivity : AppCompatActivity() {
 
 
         imageView = findViewById(R.id.fire_main_id)
-        animation = AnimationUtils.loadAnimation(this, R.anim.start_screen_scaling)
-        imageView.startAnimation(animation)
+
+        //animation
+
+
         start_button = findViewById(R.id.start_btn)
         start_button.setOnClickListener {
-            val intent = Intent(this,MainFireFightActivity::class.java )
+            val intent = Intent(this, MainFireFightActivity::class.java)
             startActivity(intent)
         }
+
+
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        animation = AnimationUtils.loadAnimation(this, R.anim.start_screen_scaling)
+        imageView.startAnimation(animation)
+        animation.repeatCount = Animation.INFINITE
+        animation.repeatMode =  Animation.REVERSE
+
+        animation.fillAfter = false
+
+
 
 
     }
@@ -45,9 +62,9 @@ class MainScreenActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         super.onOptionsItemSelected(item)
-        if(item.itemId == R.id.menu_abt) {
+        if (item.itemId == R.id.menu_abt) {
             showAbout()
-        }else if(item.itemId == R.id.htp) {
+        } else if (item.itemId == R.id.htp) {
             howToPlay()
         }
         return true
@@ -61,14 +78,15 @@ class MainScreenActivity : AppCompatActivity() {
             .create()
             .show()
     }
-    private fun howToPlay(){
-        val htp = "You play the game by tapping start. A timer will start counting down.\nThe purpose is to tap as many fires as you can"
+
+    private fun howToPlay() {
+        val htp =
+            "You play the game by tapping start. A timer will start counting down.\nThe purpose is to tap as many fires as you can"
         AlertDialog.Builder(this)
             .setTitle("How to play?")
             .setMessage(htp)
             .create().show()
     }
-
 
 
 }

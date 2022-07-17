@@ -3,13 +3,14 @@
     android:shareInterpolator="@android:anim/accelerate_interpolator">
 
     <scale
-        android:fromXScale="2.0"
-        android:toXScale="1.0"
-        android:fromYScale="2.0"
-        android:toYScale="1.0"
-        android:duration="100"
+        android:fromXScale="1.0"
+        android:toXScale="1.3"
+        android:fromYScale="1.0"
+        android:toYScale="1.3"
+        android:duration="2000"
         android:pivotX="50%"
         android:pivotY="50%"
+        android:repeatCount = "infinite"
 
          />
 </set>

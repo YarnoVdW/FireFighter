@@ -54,6 +54,7 @@
             app:layout_constraintTop_toBottomOf="@+id/score_id"
             app:layout_constraintVertical_bias="0.77" />
 
+
         <ImageView
             android:id="@+id/fire_main_id"
             android:layout_width="100dp"
@@ -61,7 +62,10 @@
             android:layout_marginStart="148dp"
             android:layout_marginEnd="148dp"
             android:layout_marginBottom="340dp"
+            android:adjustViewBounds="false"
+            android:cropToPadding="false"
             android:enabled="@{!fireFighterViewModel.gameStarted}"
+            android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
