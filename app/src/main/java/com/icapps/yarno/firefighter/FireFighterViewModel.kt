@@ -1,5 +1,6 @@
 package com.icapps.yarno.firefighter
 
+import android.annotation.SuppressLint
 import android.app.Application
 import android.os.CountDownTimer
 import android.widget.Toast
@@ -9,12 +10,17 @@ import androidx.lifecycle.MutableLiveData
 
 class FireFighterViewModel(application: Application) : AndroidViewModel(application) {
 
-    // TODO: Launch screen
+
     // TODO: countdouwn when pressing start, start button disappears
-    // TODO: flame has to go back to begin position
+    // TODO: flame has to go back to begin position!!!!!!!!!!!
     // TODO: multiple flames
     // TODO: EXPANSION multiple levels?
     // TODO: app icon
+
+    //for first launch todo
+    // TODO: disappearing start button
+    // TODO: flame has to go back to center?/?/ kinda
+
 
 
     private var _gameStarted = MutableLiveData(true)
@@ -26,33 +32,34 @@ class FireFighterViewModel(application: Application) : AndroidViewModel(applicat
         get() = _gameFinished
 
 
-    private lateinit var countDownTimer: CountDownTimer
-    private val initialCountDownTimerInMillis = 3000L
+    lateinit var countDownTimer: CountDownTimer
+    private val initialCountDownTimerInMillis = 10000L
     private val countDownIntervalInMillis = 1000L
 
-    private var _timeLeftOnTimer = MutableLiveData<Int>()
+    var _timeLeftOnTimer = MutableLiveData<Int>()
     val timeLeftOnTimer: LiveData<Int>
         get() = _timeLeftOnTimer
 
-    private var _score = MutableLiveData<Int>()
+    var _score = MutableLiveData(0)
     val score: LiveData<Int>
         get() = _score
+
     private var scoreIncrementer = 0
+
+    @SuppressLint("StaticFieldLeak")
     private val context = getApplication<Application>().applicationContext
 
-
-    private var timeLeft = initialCountDownTimerInMillis
-
     fun restoreGame() {
-        initCountDownTimer(timeLeft)
+        _timeLeftOnTimer.value?.let { initCountDownTimer(it.toLong()) }
+        countDownTimer.start()
+
     }
 
     fun resetGame() {
         initCountDownTimer(initialCountDownTimerInMillis)
         _gameStarted.postValue(true)
-        _gameFinished.postValue(false)
-        _score.postValue(0)
-
+        _score.value = 0
+        scoreIncrementer = 0
 
     }
 
@@ -65,23 +72,21 @@ class FireFighterViewModel(application: Application) : AndroidViewModel(applicat
 
             override fun onFinish() {
                 _gameFinished.postValue(true)
-                _gameStarted.postValue(true)
+                _gameStarted.postValue(false)
                 endGame()
             }
+
         }
     }
 
     fun startGame() {
         _gameStarted.postValue(false)
-        _gameFinished.postValue(true)
         countDownTimer.start()
-        _score.postValue(0)
+        _score.value = 0
 
     }
 
     fun endGame() {
-        _gameFinished.postValue(true)
-
         Toast.makeText(
             context,
             "Times up! You extinguished ${_score.value} flames!",
@@ -93,6 +98,6 @@ class FireFighterViewModel(application: Application) : AndroidViewModel(applicat
 
     fun flameIsClicked() {
         scoreIncrementer++
-        _score.postValue(scoreIncrementer)
+        _score.value = (scoreIncrementer)
     }
 }

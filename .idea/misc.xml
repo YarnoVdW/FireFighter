@@ -3,20 +3,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1825" />
+        <entry key="app/src/main/res/drawable/ic_flame_1.xml" value="0.1825" />
         <entry key="app/src/main/res/drawable/ic_flame_2.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_flame_3.xml" value="0.1" />
         <entry key="app/src/main/res/drawable/ic_flame_4.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_flame_icon.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1825" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.25871188398720557" />
         <entry key="app/src/main/res/layout/activity_main_fire_fight.xml" value="0.18904266357421878" />
         <entry key="app/src/main/res/layout/activity_main_screen.xml" value="0.17239583333333333" />
+        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.17395833333333333" />
         <entry key="app/src/main/res/layout/content_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.2890960693359375" />
         <entry key="app/src/main/res/layout/fragment_second.xml" value="0.2006340579710145" />
         <entry key="app/src/main/res/layout/main_fire_fight_activity.xml" value="0.19610507246376813" />
         <entry key="app/src/main/res/layout/main_screen.xml" value="0.156290029261234" />
         <entry key="app/src/main/res/layout/main_screen_layout.xml" value="0.165" />
+        <entry key="app/src/main/res/menu/menu_game.xml" value="0.196875" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.273284912109375" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1945" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.1825" />
       </map>
     </option>
   </component>

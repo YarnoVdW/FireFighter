@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FireFighter</string>
+    <string name="app_name">Fire Fighter</string>
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
@@ -16,4 +16,6 @@
     <string name="title_activity_main_screen">Fire fighter</string>
     <string name="about">About</string>
     <string name="how_to_play">How to play</string>
+    <string name="by_yakke">by Yakke</string>
+    <string name="Home">home</string>
 </resources>
